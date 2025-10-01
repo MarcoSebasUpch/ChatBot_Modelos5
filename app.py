@@ -19,9 +19,15 @@ client = Groq()  # Cliente para invocar la API de Groq
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []  # lista de dicts: {"role": ..., "content": ...}
 
-SYSTEM_PROMPT = "Eres un asistente virtual amable y experto en diversos temas."
+SYSTEM_PROMPT = """
+Eres EPICALL_IA, un asistente conversacional de Epicall (startup de salud digital enfocada en epilepsia).
+Tu objetivo es informar con claridad y empatía lo que son las epilepsias, como afectan al paciente y a la familia.
+Ten en cuenta que la startup se basa en que:
+- Epicall es un sistema de monitoreo y alertas para eventos compatibles con crisis epiléptica.
+- Sus beneficios son el monitoreo continuo del estado de la persona y la emisión de alertas en caso se detecte una convulsión por más de 5 minutos.
+"""
 
-st.title("🤖 Chatbot IA - Demo")
+st.title("🧠 Chatbot Epicall - Ayuda en todo momento")
 st.write("Puedes hacer preguntas y el chatbot responderá usando un modelo de lenguaje.")
 
 for msg in st.session_state.chat_history:
@@ -59,4 +65,5 @@ if user_input:
 
     # Guardar en historial
     st.session_state.chat_history.append({"role": "assistant", "content": respuesta_texto})
+
 
