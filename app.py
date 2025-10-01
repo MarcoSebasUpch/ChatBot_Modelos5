@@ -3,7 +3,7 @@ import streamlit as st
 from groq import Groq
 from dotenv import load_dotenv
 
-st.set_page_config(page_title="Epicall ChatBot", page_icon="💬", layout="centered")
+st.set_page_config(page_title="Epicall ChatBot", page_icon="🧠", layout="centered")
 
 # Cargar la API key de forma segura
 try:
@@ -59,3 +59,4 @@ if user_input:
 
     # Guardar en historial
     st.session_state.chat_history.append({"role": "assistant", "content": respuesta_texto})
+
